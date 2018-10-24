@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/reaktivo/spy-on-prop-types/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@reaktivo/spy-on-prop-types.svg?style=flat)](https://www.npmjs.com/package/@reaktivo/spy-on-prop-types)
-[![Coverage Status](https://img.shields.io/coveralls/reaktivo/spy-on-prop-types/master.svg?style=flat)](https://coveralls.io/github/reaktivo/spy-on-prop-types?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/reaktivo/spy-on-prop-types.svg)](https://codecov.io/gh/reaktivo/spy-on-prop-types)
 [![CircleCI Status](https://circleci.com/gh/reaktivo/spy-on-prop-types.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/reaktivo/spy-on-prop-types)
 
 spy-on-prop-types is a small library that allows you to spy on your propTypes definitions.
