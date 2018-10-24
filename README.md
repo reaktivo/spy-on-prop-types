@@ -35,6 +35,7 @@ console.log(MyComponent.propTypes.options);
 {
   definition: ["a", "b", "c"],
   required: true,
+  type: 'oneOf',
 }
 */
 ```
