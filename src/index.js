@@ -1,6 +1,6 @@
 import { mapObject, isPlainObject } from "./util";
 
-export default function spyOn(obj, registry = []) {
+export default function spyOn(obj, key, registry = []) {
   if (registry.includes(obj)) {
     return obj;
   }
@@ -8,22 +8,24 @@ export default function spyOn(obj, registry = []) {
   registry.push(obj);
 
   if (isPlainObject(obj) || Array.isArray(obj)) {
-    return mapObject(obj, value => spyOn(value, registry));
+    return mapObject(obj, (value, key) => spyOn(value, key, registry));
   } else if (typeof obj === "function") {
     function spy(...args) {
-      const spiedArgs = spyOn(args, registry);
+      const spiedArgs = spyOn(args, key, registry);
       const result = obj(...spiedArgs);
       if (typeof result === "function") {
         // store only the first one, since propType
         // checker's public API is monadic
         result.definition = spiedArgs[0];
       }
-      return spyOn(result, registry);
+      return spyOn(result, key, registry);
     }
+    spy.type = key;
     spy.definition = obj.definition || [];
     spy.required = false;
     if (obj.isRequired) {
-      spy.isRequired = spyOn(obj.isRequired, registry);
+      spy.isRequired = spyOn(obj.isRequired, key, registry);
+      spy.isRequired.type = key;
       spy.isRequired.definition = spy.definition;
       spy.isRequired.required = true;
     }

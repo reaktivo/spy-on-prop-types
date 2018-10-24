@@ -19,4 +19,14 @@ describe("spyOn", () => {
     expect(propTypes.something.required).toBeTruthy();
     expect(propTypes.another.required).toBeFalsy();
   });
+
+  it("should set the type", () => {
+    const PropTypes = spyOn(UnmodifiedPropTypes);
+    const propTypes = {
+      something: PropTypes.shape({}).isRequired,
+      another: PropTypes.string
+    };
+    expect(propTypes.something.type).toBe("shape");
+    expect(propTypes.another.type).toBe("string");
+  });
 });
