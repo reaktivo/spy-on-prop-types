@@ -10,7 +10,9 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
-      - run: npm it
+      - run: npm ci
+      - run: npm test -- --coverage
+      - run: bash <(curl -s https://codecov.io/bash)
       - save_cache:
           paths:
             - node_modules
