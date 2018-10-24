@@ -14,7 +14,9 @@ export default function spyOn(obj, registry = []) {
       const spiedArgs = spyOn(args, registry);
       const result = obj(...spiedArgs);
       if (typeof result === "function") {
-        result.definition = spiedArgs;
+        // store only the first one, since propType
+        // checker's public API is monadic
+        result.definition = spiedArgs[0];
       }
       return spyOn(result, registry);
     }

@@ -7,7 +7,7 @@ describe("spyOn", () => {
     const propTypes = {
       something: PropTypes.oneOf(["1", "2", "3"])
     };
-    expect(propTypes.something.definition[0]).toEqual(["1", "2", "3"]);
+    expect(propTypes.something.definition).toEqual(["1", "2", "3"]);
   });
 
   it("should correctly set the required flag", () => {
