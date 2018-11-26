@@ -11,7 +11,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "precommit": "lint-staged",
-    "prepublish": "npm run -s build",
+    "prepublish": "rm -rf dist && npm run -s build",
     "test": "jest src"
   },
   "dependencies": {
