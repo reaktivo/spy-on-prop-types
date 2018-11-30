@@ -1,6 +1,6 @@
 {
   "name": "@reaktivo/spy-on-prop-types",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "author": "Marcel Miranda <m@reaktivo.com>",
   "description": "",
   "main": "index.js",
